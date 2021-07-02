@@ -1,5 +1,10 @@
 <script>
+  import PostCard from './PostCard.svelte'
   export let name
+  const getPosts = (async () => {
+    const response = await fetch('http://localhost:3000/api/v1/posts/index')
+    return await response.json()
+  })()
 </script>
 
 <header>
@@ -9,7 +14,15 @@
 
 <main>
   <h2>All the posts</h2>
+  {#await getPosts}
   <p>loading posts...</p>
+  {:then data}
+    {#each data as post}
+      <PostCard {...post} />
+    {/each}
+  {:catch error}
+    <p>error loading posts.</p>
+  {/await}
 </main>
 
 <footer></footer>
