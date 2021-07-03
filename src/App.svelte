@@ -1,36 +1,28 @@
 <script>
   import PostList from './PostList.svelte'
-  export let name
+  export let title, description
 </script>
 
+
 <header>
-  <h1>Hello {name}!</h1>
-  <p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+  <div class="container">
+    <h1 class="text-cyan-600 text-4xl">{title}</h1>
+    <p>{description}</p>
+  </div>
 </header>
 
-<main>
+<main class="container py-5">
   <PostList />
 </main>
 
 <footer></footer>
 
-<style>
-  main {
-    padding: 1em;
-    max-width: 26rem;
-    margin: 0 auto;
-  }
+<style global lang="postcss">
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
 
-  h1 {
-    color: #ff3e00;
-    text-transform: uppercase;
-    font-size: 4rem;
-    font-weight: 300;
-  }
-
-  @media (min-width: 640px) {
-    main {
-      max-width: none;
-    }
+  header, footer {
+    @apply bg-gray-200 w-full py-10;
   }
 </style>

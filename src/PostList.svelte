@@ -5,21 +5,20 @@
   })()
 </script>
 
-<main>
-  <h2>All the posts</h2>
-  {#await getPosts}
-  <p>loading posts...</p>
-  {:then data}
 
-    {#each data as post}
-      <p>
-        <a href="/posts/{post.id}">
-          {post.title}
-        </a>
-      </p>
-    {/each}
-
-  {:catch error}
-    <p>error loading posts.</p>
-  {/await}
-</main>
+<h2 class="text-2xl">All the posts</h2>
+<section>
+{#await getPosts}
+<p>loading posts...</p>
+{:then data}
+  {#each data as post}
+    <div>
+      <a class="text-green-700 hover:underline" href="/posts/{post.id}">
+        {post.title}
+      </a>
+    </div>
+  {/each}
+{:catch error}
+  <p>error loading posts.</p>
+{/await}
+</section>
