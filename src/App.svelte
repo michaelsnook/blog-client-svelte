@@ -1,15 +1,14 @@
 <script>
   import PostList from './PostList.svelte'
+  import Banner from './Banner.svelte'
   export let title, description
 </script>
 
 
-<header>
-  <div class="container">
-    <h1 class="text-cyan-600 text-4xl">{title}</h1>
-    <p>{description}</p>
-  </div>
-</header>
+<Banner
+  bgImage="/como.jpg" {title} {description}
+  smallImage="/my-face-circle.png" smallAlt="A cartoon face of the author, Michael"
+/>
 
 <main class="container py-5">
   <PostList />
@@ -22,7 +21,7 @@
   @tailwind components;
   @tailwind utilities;
 
-  header, footer {
+  footer {
     @apply bg-gray-200 w-full py-10;
   }
 </style>

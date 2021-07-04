@@ -9,12 +9,18 @@ module.exports = {
   purge: {
     content: [
       "./src/**/*.svelte",
+      "./src/public/global.css",
     ],
     enabled: production // disable purge in dev
   },
   darkMode: false, // or 'media' or 'class'
   plugins: [],
   theme: {
+    screens: {
+      sm: '480px',
+      md: '768px',
+      lg: '976px',
+    },
     container: {
       center: true,
       padding: '1.25rem',
