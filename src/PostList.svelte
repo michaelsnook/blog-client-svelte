@@ -6,19 +6,27 @@
 </script>
 
 
-<h2 class="text-2xl">All the posts</h2>
-<section>
+<h2 class="text-4xl my-4">All Posts</h2>
 {#await getPosts}
-<p>loading posts...</p>
+  <p>loading posts...</p>
 {:then data}
-  {#each data as post}
-    <div>
-      <a class="text-green-700 hover:underline" href="/posts/{post.id}">
-        {post.title}
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 place-content-stretch">
+    {#each data as post}
+      <a class="border rounded" href="/posts/{post.id}">
+        {#if post.image}
+          <img class="rounded-t" src={post.image} alt />
+        {/if}
+        <p class="p-4 text-green-700 hover:underline">
+          {post.title}
+        </p>
+        {#if !post.image}
+          <p class="p-4">
+            {post.excerpt}
+          </p>
+        {/if}
       </a>
-    </div>
-  {/each}
+    {/each}
+  </div>
 {:catch error}
-  <p>error loading posts.</p>
+  <p>error loading posts: {JSON.stringify(error)}.</p>
 {/await}
-</section>
