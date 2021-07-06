@@ -6,7 +6,7 @@
 </script>
 
 
-<h2 class="text-4xl my-4">All Posts</h2>
+<h2 class="h2">All Posts</h2>
 {#await getPosts}
   <p>loading posts...</p>
 {:then data}
@@ -16,7 +16,7 @@
         {#if post.image}
           <img class="rounded-t" src={post.image} alt />
         {/if}
-        <p class="p-4 text-green-700 hover:underline">
+        <p class="text-2xl font-display p-4 text-cyan-700 hover:underline">
           {post.title}
         </p>
         {#if !post.image}

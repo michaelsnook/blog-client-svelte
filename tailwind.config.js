@@ -25,14 +25,17 @@ module.exports = {
       center: true,
       padding: '1.25rem',
     },
-    fontFamily: {},
+    fontFamily: {
+      'sans': [
+        '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto',
+        'Oxygen-Sans', 'Ubuntu', 'Cantarell', '"Helvetica Neue"', 'sans-serif',
+      ],
+      'display': ['"Exo 2"', 'ui-serif'],
+    },
     extend: {
       colors: {
         gray: colors.coolGray,
         cyan: colors.cyan,
-      },
-      fontSize: {
-        xxs: '0.625rem',
       },
       maxHeight: {},
     },
